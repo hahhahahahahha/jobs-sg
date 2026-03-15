@@ -84,9 +84,20 @@ uv sync --extra dev
 
 ## Usage
 
+A `Makefile` is included for the common workflow:
+
+```bash
+make help
+make check
+make build
+make serve
+```
+
 ### 1. Run tests
 
 ```bash
+make check
+# or:
 uv run pytest
 uvx ruff check .
 ```
@@ -94,18 +105,24 @@ uvx ruff check .
 ### 2. Rebuild site data
 
 ```bash
+make site-data
+# or:
 uv run python -m scripts.build_site_data
 ```
 
 ### 3. Regenerate the LLM prompt
 
 ```bash
+make prompt
+# or:
 uv run python -m scripts.make_prompt
 ```
 
 ### 4. Preview the site locally
 
 ```bash
+make serve
+# or:
 cd site
 uv run python -m http.server 8888
 ```
